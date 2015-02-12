@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<html>
+<head>
+	<title>Hello Angular</title>
+</head>
+<body>
+<script src="angular.min.js" ></script>
+
+	<div class="container" >
+		Section 1:<br>
+		Name:<input type="text" ng-model="name">{{name}}
+		<br>
+		Section 2:
+		<br>
+		<div ng-init="names=['dharmendra','divyafirst','divyaSecond','viniya','kiran','deepak']">
+			<h4>Loopin through names</h4>
+			<ul>
+				<li data-ng-repeat="name in names">{{$index}} {{ name}} {{$middle}}</li>
+			</ul>
+		</div>
+		<hr>
+		<div ng-init="persons=[{name:'dharmendra', lastname:'vaishnav',profession:'engineer'},{name:'deepak', lastname:'sharma',profession:'engineer'},{name:'kiran', lastname:'kumawat',profession:'engineer'},{name:'deepak', lastname:'malik',profession:'engineer'},{name:'deepika', lastname:'ahuja',profession:'hr'}]">
+			<h4>Loopin through persons usning pattern 1</h4>
+			<ul>
+				<li data-ng-repeat="person in persons">{{$index}} {{person.name}}-{{person.lastname}}</li>
+			</ul>
+				<hr>
+			<h4>Loopin through persons usning pattern 2</h4>
+			<ul>
+				<li data-ng-repeat="person in persons|orderBy:'name'|filter:name">{{$index}} {{person.name +' '+person.lastname}}</li>
+			</ul>
+				<hr>
+			<h4>Loopin through persons usning pattern 3</h4>
+			<ul>
+				<li data-ng-repeat="person in persons">{{$index}} {{person.name +' '+person.lastname | uppercase}}</li>
+			</ul>
+		</div>
+		
+	</div>
+	
+</body>
+</Html>
