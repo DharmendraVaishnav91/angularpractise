@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="customer">
 <head>
 	<title></title>
 </head>
@@ -12,7 +12,15 @@
 	<title>Hello Angular</title>
 </head>
 <body>
-<script src="angular.min.js" ></script>
+	<script src="angular.min.js" ></script>
+	<script>
+
+			var app = angular.module('customer', [])
+
+			app.controller('customerController', function($scope) {
+				$scope.customers=[{name:'dharmendra', lastname:'vaishnav',profession:'engineer'},{name:'deepak', lastname:'sharma',profession:'engineer'},{name:'kiran', lastname:'kumawat',profession:'engineer'},{name:'deepak', lastname:'malik',profession:'engineer'},{name:'deepika', lastname:'ahuja',profession:'hr'}];
+			});
+	</script>
 
 	<div class="container" >
 		Section 1:<br>
@@ -43,8 +51,15 @@
 				<li data-ng-repeat="person in persons">{{$index}} {{person.name +' '+person.lastname | uppercase}}</li>
 			</ul>
 		</div>
-		
+		<br>
+		<div ng-controller="customerController">
+			<h4>Loopin through customer using controller</h4>
+			<ul>
+				<li ng-repeat="customer1 in customers">{{customer1.name}}</li>
+			</ul>
+		</div>
 	</div>
+	
 	
 </body>
 </Html>
