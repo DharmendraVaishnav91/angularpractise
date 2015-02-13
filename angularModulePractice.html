@@ -1,0 +1,35 @@
+
+</<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<title></title>
+</head>
+<body>
+	
+	<div class="container" >
+		
+		
+		<div ng-controller="userController">
+		
+			<h2>Usere Available</h2>
+			<br>
+			<br>
+			<br>
+			Sort Order:
+			<select ng-model="sortorder"> 
+			<option value="user">user</option>
+			<option value="vote">vote</option>
+			<option value="profession">profession</option>
+
+			</select>
+			<ul>
+				<li ng-repeat="user in users | orderBy:sortorder "><button ng-click="voteUp(user)">Vote Up</button>&nbsp;&nbsp;&nbsp;<button ng-click="voteDown(user)">Vote Down</button>&nbsp;&nbsp;&nbsp;{{$index+1}} {{user.user}} vote of user {{user.vote}}    badge have : {{user.badges |badge}}</li>
+
+			</ul>
+		</div>
+		<hr>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js" ></script>
+		<script src="userController.js" ></script>
+		<script src="filter.js" ></script>
+</body>
+</html>
